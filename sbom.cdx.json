@@ -1,0 +1,74 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:36c11c42-1483-53e0-a739-706763adbce3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-13T21:19:16Z",
+    "component": {
+      "type": "application",
+      "name": "L_OPENCOMP",
+      "version": "unknown",
+      "bom-ref": "pkg:generic/anticloud/L_OPENCOMP@unknown",
+      "purl": "pkg:generic/anticloud/L_OPENCOMP@unknown",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": ""
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": ""
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "pyext",
+      "version": "==0.7 is skipped on Python >=3.11 because it ",
+      "purl": "pkg:pypi/pyext@0.7 is skipped on Python >=3.11 because it ",
+      "bom-ref": "pypi/pyext@==0.7 is skipped on Python >=3.11 because it "
+    },
+    {
+      "type": "library",
+      "name": "-r",
+      "version": "unspecified",
+      "purl": "pkg:pypi/-r",
+      "bom-ref": "pypi/-r@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "-e",
+      "version": "unspecified",
+      "purl": "pkg:pypi/-e",
+      "bom-ref": "pypi/-e@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "nltk",
+      "version": "==3.8",
+      "purl": "pkg:pypi/nltk@3.8",
+      "bom-ref": "pypi/nltk@==3.8"
+    },
+    {
+      "type": "library",
+      "name": "opencompass",
+      "version": "= opencompass.cli.main:main",
+      "purl": "pkg:pypi/opencompass@opencompass.cli.main:main",
+      "bom-ref": "pypi/opencompass@= opencompass.cli.main:main"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "benchmark": "Ruff_Linter_Lab_Results",
+  "project": "L_OPENCOMP",
+  "run_timestamp": "2026-09-30T17:14:20.030944+00:00",
+  "source": "https://docs.astral.sh/ruff/",
+  "results": {
+    "framework": "Ruff \u2014 Fast Python Linter (Astral)",
+    "source": "https://docs.astral.sh/ruff/",
+    "files_scanned": 10,
+    "total_issues": 73,
+    "top_issue_codes": {
+      "C408": 31,
+      "F401": 24,
+      "I001": 6,
+      "RUF017": 6,
+      "S110": 1
+    },
+    "status": "FAIL"
+  }
+}

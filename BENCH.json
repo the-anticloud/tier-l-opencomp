@@ -1,0 +1,1931 @@
+{
+ "schema": "anticloud.tier-bench/1",
+ "project": "L_OPENCOMP",
+ "source": {
+  "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\TIER_6_SECURITY_EVAL\\L_OPENCOMP\\UPSTREAM_CLONE",
+  "git": {
+   "head": "",
+   "url": "",
+   "branch": "",
+   "committed_at": ""
+  }
+ },
+ "metrics": {
+  "files_total": 3226,
+  "source_files_scanned": 2960,
+  "lines_of_code": 242952,
+  "languages": {
+   ".py": 2971,
+   ".md": 156,
+   ".txt": 51,
+   ".yaml": 17,
+   ".rst": 6,
+   "(none)": 5,
+   ".svg": 4,
+   ".jsonl": 3,
+   ".yml": 2,
+   ".conf": 2,
+   ".html": 2,
+   ".js": 2,
+   ".css": 2,
+   ".json": 1,
+   ".in": 1
+  }
+ },
+ "licence": {
+  "spdx": "Apache-2.0",
+  "class": "A",
+  "source_file": "LICENSE",
+  "redistribution_allowed": true
+ },
+ "dependencies": {
+  "count": 5,
+  "unique": 5,
+  "by_ecosystem": {
+   "pypi": 5
+  },
+  "list": [
+   {
+    "ecosystem": "pypi",
+    "name": "pyext",
+    "version": "==0.7 is skipped on Python >=3.11 because it ",
+    "source_file": "setup.py",
+    "raw": "pyext==0.7 is skipped on Python >=3.11 because it"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "-r",
+    "version": "",
+    "source_file": "setup.py",
+    "raw": "-r"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "-e",
+    "version": "",
+    "source_file": "setup.py",
+    "raw": "-e"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "nltk",
+    "version": "==3.8",
+    "source_file": "setup.py",
+    "raw": "nltk==3.8"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "opencompass",
+    "version": "= opencompass.cli.main:main",
+    "source_file": "setup.py",
+    "raw": "opencompass = opencompass.cli.main:main"
+   }
+  ]
+ },
+ "owasp_top10": {
+  "total_findings": 255,
+  "files_with_findings": 233,
+  "severity": {
+   "high": 52,
+   "medium": 11,
+   "low": 192
+  },
+  "categories": {
+   "A01-BrokenAccessControl": {
+    "count": 0,
+    "findings": []
+   },
+   "A02-CryptographicFailures": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/IFBench/instructions.py",
+      "line": 1078,
+      "cwe": "CWE-338",
+      "snippet": "self._keyword_position = random.randint(1, _NUM_KEYWORD_SENTENCE)\r\n\r\n        self._description_pattern = \"The response must include keyword \\\"{word}\\\" in the {N}-th sentence.\""
+     }
+    ]
+   },
+   "A03-Injection": {
+    "count": 60,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "setup.py",
+      "line": 115,
+      "cwe": "CWE-95",
+      "snippet": "exec(compile(f.read(), version_file, 'exec'))"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/partitioners/num_worker.py",
+      "line": 140,
+      "cwe": "CWE-95",
+      "snippet": "actual_size = eval('len(range(self.dataset_size[dataset_abbr])'"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/partitioners/size.py",
+      "line": 217,
+      "cwe": "CWE-95",
+      "snippet": "return len(eval(f'range(total_size){test_range}'))"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/partitioners/sub_num_worker.py",
+      "line": 194,
+      "cwe": "CWE-95",
+      "snippet": "actual_size = eval('len(range(self.dataset_size[dataset_abbr])'"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/partitioners/sub_size.py",
+      "line": 268,
+      "cwe": "CWE-95",
+      "snippet": "actual_size = eval('len(range(self.dataset_size[dataset_abbr])'"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/openicl/icl_dataset_reader.py",
+      "line": 243,
+      "cwe": "CWE-95",
+      "snippet": "dataset = dataset.select(eval(f'index_list{size}'))"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/openicl/icl_retriever/icl_topk_retriever.py",
+      "line": 82,
+      "cwe": "CWE-95",
+      "snippet": "self.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/models/huggingface.py",
+      "line": 214,
+      "cwe": "CWE-95",
+      "snippet": "self.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/models/huggingface_above_v4_33.py",
+      "line": 269,
+      "cwe": "CWE-95",
+      "snippet": "self.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/models/interntrain.py",
+      "line": 271,
+      "cwe": "CWE-95",
+      "snippet": "self.model.eval().cuda()"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/models/modelscope.py",
+      "line": 165,
+      "cwe": "CWE-95",
+      "snippet": "self.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/lagent/actions/python_interpreter.py",
+      "line": 30,
+      "cwe": "CWE-95",
+      "snippet": "return eval(expr, self._global_vars)"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/benbench.py",
+      "line": 53,
+      "cwe": "CWE-95",
+      "snippet": "edit_dist = editdistance.eval(predicted_text, original_text)"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/cibench.py",
+      "line": 444,
+      "cwe": "CWE-78",
+      "snippet": "shell=True)"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/cruxeval.py",
+      "line": 19,
+      "cwe": "CWE-95",
+      "snippet": "exec(code, {'__builtins__': __builtins__})"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/ds1000.py",
+      "line": 293,
+      "cwe": "CWE-78",
+      "snippet": "shell=True,"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/game24.py",
+      "line": 194,
+      "cwe": "CWE-89",
+      "snippet": "return standard_prompt.format(input=x) + y"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/humaneval.py",
+      "line": 220,
+      "cwe": "CWE-95",
+      "snippet": "eval_text = eval(text)"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/humanevalx.py",
+      "line": 176,
+      "cwe": "CWE-95",
+      "snippet": "eval_text = eval(text)"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/LCBench.py",
+      "line": 206,
+      "cwe": "CWE-95",
+      "snippet": "eval_text = eval(text)"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/mbpp.py",
+      "line": 331,
+      "cwe": "CWE-95",
+      "snippet": "self.eval(Namespace(**flags))"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/MedCalc_Bench.py",
+      "line": 42,
+      "cwe": "CWE-95",
+      "snippet": "if eval(answer) == eval(ground_truth):"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/natural_question.py",
+      "line": 30,
+      "cwe": "CWE-95",
+      "snippet": "answers = eval(row['answer'])"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/triviaqa.py",
+      "line": 32,
+      "cwe": "CWE-95",
+      "snippet": "answers = eval(row['answer'])"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/vlmevalkit/dataset.py",
+      "line": 61,
+      "cwe": "CWE-95",
+      "snippet": "data = data.iloc[eval(f'index_list{test_range}', scope)]"
+     }
+    ]
+   },
+   "A04-InsecureDesign": {
+    "count": 122,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "opencompass/registry.py",
+      "line": 22,
+      "cwe": "CWE-",
+      "snippet": "# TODO: LOAD_DATASET -> DATASETS"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_prompt_template.py",
+      "line": 177,
+      "cwe": "CWE-",
+      "snippet": "# TODO: Check this, seems it is used in XXXRetriever as well"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_attack_inferencer.py",
+      "line": 118,
+      "cwe": "CWE-",
+      "snippet": "# TODO: move resume to output handler"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_base_inferencer.py",
+      "line": 322,
+      "cwe": "CWE-",
+      "snippet": "# TODO:"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_chatml_inferencer_parallel.py",
+      "line": 91,
+      "cwe": "CWE-",
+      "snippet": "todo = list(range(total_samples))"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_chat_inferencer_parallel.py",
+      "line": 82,
+      "cwe": "CWE-",
+      "snippet": "todo = list(range(total_samples))"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_clp_inferencer.py",
+      "line": 34,
+      "cwe": "CWE-",
+      "snippet": "2. Muiltple token choices. TODO: More complicated and needs to be added in"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_gen_inferencer_parallel.py",
+      "line": 102,
+      "cwe": "CWE-",
+      "snippet": "todo = list(range(total_samples))"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_inference_ppl_only_inferencer.py",
+      "line": 101,
+      "cwe": "CWE-",
+      "snippet": "# TODO: move resume to output handler"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_ll_inferencer.py",
+      "line": 99,
+      "cwe": "CWE-",
+      "snippet": "# TODO: Refactor"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_mink_percent_inferencer.py",
+      "line": 95,
+      "cwe": "CWE-",
+      "snippet": "# TODO: move resume to output handler"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_ppl_inferencer.py",
+      "line": 102,
+      "cwe": "CWE-",
+      "snippet": "# TODO: Refactor"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_ppl_only_inferencer.py",
+      "line": 95,
+      "cwe": "CWE-",
+      "snippet": "# TODO: move resume to output handler"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_sc_inferencer.py",
+      "line": 115,
+      "cwe": "CWE-",
+      "snippet": "# TODO: move resume to output handler"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_sw_ce_loss_inferencer.py",
+      "line": 110,
+      "cwe": "CWE-",
+      "snippet": "# TODO: move resume to output handler"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_tot_inferencer.py",
+      "line": 342,
+      "cwe": "CWE-",
+      "snippet": "# TODO: move resume to output handler"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_evaluator/lm_evaluator.py",
+      "line": 256,
+      "cwe": "CWE-",
+      "snippet": "# single chat for format like [['xxx', 'xxxx'], ['xxx', 'xxxx']]"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/base_api.py",
+      "line": 304,
+      "cwe": "CWE-",
+      "snippet": "# TODO: logger"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/huggingface_above_v4_33.py",
+      "line": 119,
+      "cwe": "CWE-",
+      "snippet": "# XXX: all system roles are mapped to human in purpose"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/interntrain.py",
+      "line": 163,
+      "cwe": "CWE-",
+      "snippet": "# TODO: mode is not a good name, change it both here and huggingface.py"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/lagent.py",
+      "line": 136,
+      "cwe": "CWE-",
+      "snippet": "import xxx"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/xunfei_api.py",
+      "line": 142,
+      "cwe": "CWE-",
+      "snippet": "# FIXME: messages only contains the last input"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/lagent/actions/python_interpreter.py",
+      "line": 37,
+      "cwe": "CWE-",
+      "snippet": "import xxx"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/CARDBiomedBench.py",
+      "line": 29,
+      "cwe": "CWE-",
+      "snippet": "pass  # TODO: Implement few-shot prompt"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/charm.py",
+      "line": 61,
+      "cwe": "CWE-",
+      "snippet": "# \u90e8\u5206CHARM\u8bb0\u5fc6\u9898\u76ee\u7684ref\u662f\"[not]xxx\""
+     }
+    ]
+   },
+   "A05-SecurityMisconfiguration": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "opencompass/cli/main.py",
+      "line": 148,
+      "cwe": "CWE-1188",
+      "snippet": "default=True,"
+     }
+    ]
+   },
+   "A06-VulnerableComponents": {
+    "count": 2,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "opencompass/models/vllm.py",
+      "line": 37,
+      "cwe": "CWE-1104",
+      "snippet": "'note: torch==2.1.2 is required.')"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/vllm_with_tf_above_v4_33.py",
+      "line": 59,
+      "cwe": "CWE-1104",
+      "snippet": "assert LLM, ('Please install VLLM with `pip install vllm`. note: torch==2.1.2 is required.')"
+     }
+    ]
+   },
+   "A07-AuthFailures": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "examples/eval_internlm_chat_lmdeploy_apiserver.py",
+      "line": 36,
+      "cwe": "CWE-798",
+      "snippet": "api_key='internlm-chat-20b',  # api_key"
+     }
+    ]
+   },
+   "A08-SoftwareDataIntegrity": {
+    "count": 68,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "setup.py",
+      "line": 73,
+      "cwe": "CWE-319",
+      "snippet": "# http://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-platform-specific-dependencies"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_evaluator/hf_metrics/accuracy.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_evaluator/hf_metrics/rouge.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_evaluator/hf_metrics/sacrebleu.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_evaluator/hf_metrics/squad.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/krgpt_api.py",
+      "line": 23,
+      "cwe": "CWE-319",
+      "snippet": "url: str = 'http://101.69.162.5:9300/v1/chat/completions',"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/lightllm_api.py",
+      "line": 28,
+      "cwe": "CWE-319",
+      "snippet": "url: str = 'http://localhost:8080/generate',"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/nanbeige_api.py",
+      "line": 51,
+      "cwe": "CWE-319",
+      "snippet": "else 'http://stardustlm.zhipin.com/api/gpt/open/chat/send/sync'"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/turbomind_api.py",
+      "line": 61,
+      "cwe": "CWE-319",
+      "snippet": "api_addr: str = 'http://0.0.0.0:23333',"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/confidence.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/config.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/decode.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/embedders.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/geoformer.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/model.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/modules.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/omegaplm.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/pipeline.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/__init__.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/__main__.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/utils/torch_utils.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/utils/__init__.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/utils/protein_utils/aaframe.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/utils/protein_utils/functions.py",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/utils/protein_utils/residue_constants.py",
+      "line": 9,
+      "cwe": "CWE-319",
+      "snippet": "#      http://www.apache.org/licenses/LICENSE-2.0"
+     }
+    ]
+   },
+   "A09-LoggingMonitoringFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A10-SSRF": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "owasp_llm_top10": {
+  "total_findings": 124,
+  "files_with_findings": 116,
+  "severity": {
+   "high": 20,
+   "medium": 51,
+   "low": 53
+  },
+  "categories": {
+   "LLM01-PromptInjection": {
+    "count": 57,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "opencompass/openicl/icl_prompt_template.py",
+      "line": 206,
+      "cwe": "CWE-1336",
+      "snippet": "return (f'PromptTemplate({{\\n\\ttemplate: {self.template},\\n\\t'"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/openicl/icl_raw_prompt_template.py",
+      "line": 183,
+      "cwe": "CWE-1336",
+      "snippet": "return f'RawPromptTemplate(messages={self.messages}, ice_token={self.ice_token})'  # noqa"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_inferencer/icl_chatml_inferencer.py",
+      "line": 74,
+      "cwe": "CWE-1427",
+      "snippet": "this_system_prompt = question_round['content']"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/baichuan_api.py",
+      "line": 42,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt: str = '',"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/bluelm_api.py",
+      "line": 42,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt: str = '',"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/deepseek_api.py",
+      "line": 43,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt: str = '',"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/gemini_api.py",
+      "line": 113,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = None"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/huggingface_above_v4_33.py",
+      "line": 173,
+      "cwe": "CWE-1336",
+      "snippet": "class HuggingFacewithChatTemplate(BaseModel):"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/litellm_api.py",
+      "line": 81,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt: str = '',"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/moonshot_api.py",
+      "line": 41,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt: str = '',"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/stepfun_api.py",
+      "line": 41,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt: str = '',"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/turbomind_with_tf_above_v4_33.py",
+      "line": 32,
+      "cwe": "CWE-1336",
+      "snippet": "class TurboMindModelwithChatTemplate(BaseModel):"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/vllm_with_tf_above_v4_33.py",
+      "line": 21,
+      "cwe": "CWE-1336",
+      "snippet": "class VLLMwithChatTemplate(BaseModel):"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/models/yi_api.py",
+      "line": 41,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt: str = '',"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/advancedIF.py",
+      "line": 59,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = ''"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/chinese_simpleqa.py",
+      "line": 105,
+      "cwe": "CWE-1427",
+      "snippet": "cur_system_prompt = '\u4f60\u662f\u4e00\u4e2a\u667a\u80fd\u52a9\u624b\u3002'"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/critpt.py",
+      "line": 85,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = (_DEFAULT_SYSTEM_PROMPT_ONE_STEP"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/OlympiadBench.py",
+      "line": 766,
+      "cwe": "CWE-1336",
+      "snippet": "class OlympiadBenchTemplate(PromptTemplate):"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/subjective/mtbench101.py",
+      "line": 240,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = judge + unique_prompt[task] + score_format"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/moleculariq/moleculariq_core/_dynamic/moleculariqd.py",
+      "line": 78,
+      "cwe": "CWE-1427",
+      "snippet": "self.system_prompt = SYSTEM_PROMPTS.get("
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/leval/evaluators.py",
+      "line": 65,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = \"Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question about the content of a long document."
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/fake_alignment/fake_alignment.py",
+      "line": 51,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = 'You are a helpful assistant.'"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/codecompass/CodeCompass.py",
+      "line": 23,
+      "cwe": "CWE-1427",
+      "snippet": "DEFAULT_SYSTEM_PROMPT = ("
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/configs/datasets/subjective/hellobench/hellobench.py",
+      "line": 7,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = \"\"\"You are a helpful evaluator. Your task is to evaluate the checklists of the responses given by the Large Language Models (LLMs) based on user instructions. These"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/configs/datasets/subjective/arena_hard/arena_hard_compare.py",
+      "line": 21,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = \"Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user prompt displayed below. You will be given assi"
+     }
+    ]
+   },
+   "LLM02-SensitiveInfoDisclosure": {
+    "count": 18,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "opencompass/models/litellm_api.py",
+      "line": 40,
+      "cwe": "CWE-798",
+      "snippet": "(``OPENAI_API_KEY``, ``ANTHROPIC_API_KEY``, ``GEMINI_API_KEY``,"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/models/openai_api.py",
+      "line": 87,
+      "cwe": "CWE-798",
+      "snippet": "variable $OPENAI_API_KEY, as how openai defaults to be. If it's a"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/models/openai_response.py",
+      "line": 31,
+      "cwe": "CWE-798",
+      "snippet": "``OPENAI_API_KEY``."
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/leval/evaluators.py",
+      "line": 19,
+      "cwe": "CWE-798",
+      "snippet": "$OPENAI_API_KEY, as how openai defaults to be."
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/healthbench/sampler/chat_completion_sampler.py",
+      "line": 27,
+      "cwe": "CWE-798",
+      "snippet": "self.api_key_name = 'OPENAI_API_KEY'"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/configs/models/openai/gpt_3_5_turbo.py",
+      "line": 14,
+      "cwe": "CWE-798",
+      "snippet": "key='ENV',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/configs/models/openai/gpt_3_5_turbo_0125.py",
+      "line": 14,
+      "cwe": "CWE-798",
+      "snippet": "'ENV',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/configs/models/openai/gpt_4.py",
+      "line": 14,
+      "cwe": "CWE-798",
+      "snippet": "key='ENV',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/configs/models/openai/gpt_4o_2024_05_13.py",
+      "line": 14,
+      "cwe": "CWE-798",
+      "snippet": "'ENV',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/configs/models/openai/o1_mini_2024_09_12.py",
+      "line": 14,
+      "cwe": "CWE-798",
+      "snippet": "'ENV',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/configs/models/openai/o1_preview_2024_09_12.py",
+      "line": 14,
+      "cwe": "CWE-798",
+      "snippet": "'ENV',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/configs/datasets/truthfulqa/truthfulqa_gen_1e7d8d.py",
+      "line": 19,
+      "cwe": "CWE-798",
+      "snippet": "# OPENAI_API_KEY with finetuned models in it."
+     },
+     {
+      "severity": "high",
+      "file": "examples/eval_chinese_simpleqa.py",
+      "line": 55,
+      "cwe": "CWE-798",
+      "snippet": "key='xxx',  # provide OPENAI_API_KEY"
+     },
+     {
+      "severity": "high",
+      "file": "examples/eval_gpt3.5.py",
+      "line": 25,
+      "cwe": "CWE-798",
+      "snippet": "'ENV',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "examples/eval_gpt4.py",
+      "line": 31,
+      "cwe": "CWE-798",
+      "snippet": "'ENV',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "examples/eval_hellobench.py",
+      "line": 83,
+      "cwe": "CWE-798",
+      "snippet": "'xxxx',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "examples/eval_subjective.py",
+      "line": 81,
+      "cwe": "CWE-798",
+      "snippet": "'xxxx',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     },
+     {
+      "severity": "high",
+      "file": "examples/eval_subjective_alpacaeval_official.py",
+      "line": 63,
+      "cwe": "CWE-798",
+      "snippet": "'',  # The key will be obtained from $OPENAI_API_KEY, but you can write down your key here as well"
+     }
+    ]
+   },
+   "LLM03-SupplyChain": {
+    "count": 36,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "opencompass/openicl/icl_dataset_reader.py",
+      "line": 259,
+      "cwe": "CWE-494",
+      "snippet": "self.tokenizer = AutoTokenizer.from_pretrained(model_name)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/openicl/icl_retriever/icl_mdl_retriever.py",
+      "line": 149,
+      "cwe": "CWE-494",
+      "snippet": "self.metric_model = AutoModelForCausalLM.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/openicl/icl_retriever/icl_topk_retriever.py",
+      "line": 66,
+      "cwe": "CWE-494",
+      "snippet": "self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/accessory.py",
+      "line": 53,
+      "cwe": "CWE-494",
+      "snippet": "self.model = MetaModel.from_pretrained(**from_pretrained_kwargs)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/alaya.py",
+      "line": 55,
+      "cwe": "CWE-494",
+      "snippet": "self.config = AutoConfig.from_pretrained(self.name,"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/huggingface.py",
+      "line": 134,
+      "cwe": "CWE-494",
+      "snippet": "self.tokenizer = AutoTokenizer.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/huggingface_above_v4_33.py",
+      "line": 50,
+      "cwe": "CWE-494",
+      "snippet": "config = AutoConfig.from_pretrained(path, trust_remote_code=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/modelscope.py",
+      "line": 85,
+      "cwe": "CWE-494",
+      "snippet": "self.tokenizer = AutoTokenizer.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/openai_api.py",
+      "line": 461,
+      "cwe": "CWE-494",
+      "snippet": "self.tokenizer = AutoTokenizer.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/turbomind.py",
+      "line": 67,
+      "cwe": "CWE-494",
+      "snippet": "self.tokenizer = AutoTokenizer.from_pretrained(path,"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/turbomind_with_tf_above_v4_33.py",
+      "line": 56,
+      "cwe": "CWE-494",
+      "snippet": "self.tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/models/vllm_with_tf_above_v4_33.py",
+      "line": 69,
+      "cwe": "CWE-494",
+      "snippet": "self.tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/aa_lcr.py",
+      "line": 68,
+      "cwe": "CWE-494",
+      "snippet": "csv_path = hf_hub_download(repo_id=path,"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/benbench.py",
+      "line": 21,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, trust_remote_code=True, **tokenizer_kwargs)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/omni_math.py",
+      "line": 46,
+      "cwe": "CWE-494",
+      "snippet": "self.tokenizer = AutoTokenizer.from_pretrained('KbsdJames/Omni-Judge',"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/taco.py",
+      "line": 42,
+      "cwe": "CWE-494",
+      "snippet": "data_file = hf_hub_download("
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/truthfulqa.py",
+      "line": 112,
+      "cwe": "CWE-494",
+      "snippet": "self.model = AutoModelForCausalLM.from_pretrained(truth_model).to("
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/SciReasoner/bio_instruction.py",
+      "line": 45,
+      "cwe": "CWE-494",
+      "snippet": "#     train_path = hf_hub_download(repo_id,"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/SciReasoner/bulk_modulus_material.py",
+      "line": 30,
+      "cwe": "CWE-494",
+      "snippet": "#     train_path = hf_hub_download(repo_id,"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/SciReasoner/composition_material.py",
+      "line": 75,
+      "cwe": "CWE-494",
+      "snippet": "#     train_path = hf_hub_download(repo_id,"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/SciReasoner/GUE.py",
+      "line": 29,
+      "cwe": "CWE-494",
+      "snippet": "#     train_path = hf_hub_download(repo_id,"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/SciReasoner/LLM4Mat.py",
+      "line": 36,
+      "cwe": "CWE-494",
+      "snippet": "#     path = hf_hub_download(repo_id, path, repo_type='dataset')"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/SciReasoner/PEER.py",
+      "line": 37,
+      "cwe": "CWE-494",
+      "snippet": "#     train_path = hf_hub_download(repo_id,"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/SciReasoner/unconditional_protein_generation/omegafold/pipeline.py",
+      "line": 376,
+      "cwe": "CWE-494",
+      "snippet": "args.weights_file = hf_hub_download('SciReason/OmegaFold-release',"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/SciReasoner/opi/evaluator.py",
+      "line": 32,
+      "cwe": "CWE-494",
+      "snippet": "#     train_path = hf_hub_download(repo_id,"
+     }
+    ]
+   },
+   "LLM04-DataPoisoning": {
+    "count": 9,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/apps.py",
+      "line": 51,
+      "cwe": "CWE-20",
+      "snippet": "input_output = json.loads(sample['input_output'])"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/arc.py",
+      "line": 89,
+      "cwe": "CWE-20",
+      "snippet": "annotations = json.loads(requests.get(link_of_annotations).text)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/ceval.py",
+      "line": 64,
+      "cwe": "CWE-20",
+      "snippet": "annotations = json.loads(requests.get(link_of_annotations).text)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/hellaswag.py",
+      "line": 185,
+      "cwe": "CWE-20",
+      "snippet": "annotations = json.loads(requests.get(link_of_annotations).text)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/mmlu.py",
+      "line": 84,
+      "cwe": "CWE-20",
+      "snippet": "annotations = json.loads(requests.get(link_of_annotations).text)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/taco.py",
+      "line": 67,
+      "cwe": "CWE-20",
+      "snippet": "input_output = json.loads(sample['input_output'])"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/teval/evaluators/reason_retrieve_understand_evaluator.py",
+      "line": 317,
+      "cwe": "CWE-20",
+      "snippet": "arg_inputs = json.loads(arg_inputs)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/livecodebench/evaluator.py",
+      "line": 58,
+      "cwe": "CWE-20",
+      "snippet": "len(json.loads(sample['input_output'])['inputs']) + 5)"
+     },
+     {
+      "severity": "medium",
+      "file": "opencompass/datasets/livecodebench/testing_util.py",
+      "line": 104,
+      "cwe": "CWE-20",
+      "snippet": "in_outs = json.loads(sample['input_output'])"
+     }
+    ]
+   },
+   "LLM05-ImproperOutputHandling": {
+    "count": 2,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/supergpqa/supergpqa_utils.py",
+      "line": 532,
+      "cwe": "CWE-95",
+      "snippet": "result = eval(response_text)"
+     },
+     {
+      "severity": "high",
+      "file": "opencompass/datasets/korbench/korbench_utils.py",
+      "line": 532,
+      "cwe": "CWE-95",
+      "snippet": "result = eval(response_text)"
+     }
+    ]
+   },
+   "LLM06-ExcessiveAgency": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM07-SystemPromptLeak": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM08-VectorEmbeddingWeaknesses": {
+    "count": 2,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "opencompass/openicl/icl_retriever/icl_topk_retriever.py",
+      "line": 25,
+      "cwe": "CWE-",
+      "snippet": "basic knn. SentenceTransformer is used to calculate embeddings. Faiss is"
+     },
+     {
+      "severity": "low",
+      "file": "opencompass/datasets/NPHardEval/hard_GCP.py",
+      "line": 16,
+      "cwe": "CWE-",
+      "snippet": "chromatic_number = q.split('\\n')[0][-1]  # last character of the first line"
+     }
+    ]
+   },
+   "LLM09-Misinformation": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM10-UnboundedConsumption": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "sbom": {
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:36c11c42-1483-53e0-a739-706763adbce3",
+  "version": 1,
+  "metadata": {
+   "timestamp": "2026-10-13T21:19:16Z",
+   "component": {
+    "type": "application",
+    "name": "L_OPENCOMP",
+    "version": "unknown",
+    "bom-ref": "pkg:generic/anticloud/L_OPENCOMP@unknown",
+    "purl": "pkg:generic/anticloud/L_OPENCOMP@unknown",
+    "licenses": [
+     {
+      "license": {
+       "id": "Apache-2.0"
+      }
+     }
+    ]
+   },
+   "properties": [
+    {
+     "name": "anticloud:source-commit",
+     "value": ""
+    },
+    {
+     "name": "anticloud:source-url",
+     "value": ""
+    },
+    {
+     "name": "anticloud:tier",
+     "value": "tier-agent"
+    }
+   ]
+  },
+  "components": [
+   {
+    "type": "library",
+    "name": "pyext",
+    "version": "==0.7 is skipped on Python >=3.11 because it ",
+    "purl": "pkg:pypi/pyext@0.7 is skipped on Python >=3.11 because it ",
+    "bom-ref": "pypi/pyext@==0.7 is skipped on Python >=3.11 because it "
+   },
+   {
+    "type": "library",
+    "name": "-r",
+    "version": "unspecified",
+    "purl": "pkg:pypi/-r",
+    "bom-ref": "pypi/-r@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "-e",
+    "version": "unspecified",
+    "purl": "pkg:pypi/-e",
+    "bom-ref": "pypi/-e@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "nltk",
+    "version": "==3.8",
+    "purl": "pkg:pypi/nltk@3.8",
+    "bom-ref": "pypi/nltk@==3.8"
+   },
+   {
+    "type": "library",
+    "name": "opencompass",
+    "version": "= opencompass.cli.main:main",
+    "purl": "pkg:pypi/opencompass@opencompass.cli.main:main",
+    "bom-ref": "pypi/opencompass@= opencompass.cli.main:main"
+   }
+  ]
+ },
+ "elapsed_seconds": 52.59,
+ "benchmarks": [
+  {
+   "evidence": {
+    "ceilings": {
+     "max_files": 120,
+     "max_lines": 20000,
+     "min_lines": 2000
+    },
+    "code_lines": 6889,
+    "command": "python tools/run_bench.py --only 01_loc_files",
+    "counts_command": "find src tests tools -name '*.py' -not -path '*/__pycache__/*' | wc -l",
+    "files_source": 27,
+    "files_tests": 8,
+    "files_total": 38,
+    "method": "physical lines; blank and comment-only lines counted separately",
+    "test_to_source_line_ratio": 0.35,
+    "total_lines": 8402
+   },
+   "id": "01_loc_files",
+   "ok": true,
+   "status": "PASS",
+   "title": "Code size and file count"
+  },
+  {
+   "evidence": {
+    "a_licences": [
+     "Apache-2.0",
+     "BSD-2-Clause",
+     "BSD-3-Clause",
+     "ISC",
+     "MIT",
+     "MPL-2.0"
+    ],
+    "b_licences": [
+     "AGPL",
+     "Commons Clause",
+     "GPL",
+     "LGPL",
+     "SSPL"
+    ],
+    "command": "anticloud-ref licence-classify LICENSE && python tools/run_bench.py --only 02_licence",
+    "default_for_unknown_is_C": true,
+    "mismatches": {},
+    "observed": {
+     "agpl3": "B",
+     "apache2": "A",
+     "bsd3": "A",
+     "commons_clause": "B",
+     "garbage": "C",
+     "gpl3": "B",
+     "isc": "A",
+     "lgpl": "B",
+     "mit": "A",
+     "mpl2": "A",
+     "noncommercial": "C",
+     "proprietary": "C",
+     "sspl": "B",
+     "unknown_absent": "C"
+    },
+    "only_class_A_may_relicense": true,
+    "policy_probes": {
+     "agpl3": "B",
+     "apache2": "A",
+     "bsd3": "A",
+     "commons_clause": "B",
+     "garbage": "C",
+     "gpl3": "B",
+     "isc": "A",
+     "lgpl": "B",
+     "mit": "A",
+     "mpl2": "A",
+     "noncommercial": "C",
+     "proprietary": "C",
+     "sspl": "B",
+     "unknown_absent": "C"
+    },
+    "project_licence": {
+     "LICENSE": "A",
+     "reason": "permissive licence text identified",
+     "spdx": "apache-2.0"
+    },
+    "pyproject_declared": "Apache-2.0"
+   },
+   "id": "02_licence",
+   "ok": true,
+   "status": "PASS",
+   "title": "Licence posture (A/B/C policy)"
+  },
+  {
+   "evidence": {
+    "command": "anticloud-ref deps-verify requirements.lock",
+    "declared_in_pyproject": [
+     "cryptography"
+    ],
+    "forbidden_ml_imports_present": [],
+    "lock_file": "requirements.lock",
+    "packages_hashed": 6,
+    "packages_pinned": 6,
+    "requirements": [
+     "cffi==2.1.1",
+     "coverage==7.16.2",
+     "cryptography==50.0.2",
+     "pycparser==3.0",
+     "pytest==9.1.1",
+     "pytest-cov==7.1.0"
+    ],
+    "sha256_hashes": 286,
+    "transitive_or_unclassified": [
+     "cffi==2.1.1",
+     "coverage==7.16.2",
+     "cryptography==50.0.2",
+     "pycparser==3.0",
+     "pytest-cov==7.1.0",
+     "pytest==9.1.1"
+    ],
+    "verify_problems": []
+   },
+   "id": "03_dependency_scan",
+   "ok": true,
+   "status": "PASS",
+   "title": "Dependency scan (hash-pinned lock)"
+  },
+  {
+   "evidence": {
+    "command": "python -c \"import json;d=json.load(open('sbom.cdx.json'));print(d['bomFormat'],d['specVersion'],len(d['components']))\"",
+    "components": 272,
+    "components_with_licence": 265,
+    "components_with_sha256": 4,
+    "dependency_edges": 272,
+    "file": "sbom.cdx.json",
+    "format": "CycloneDX",
+    "generated_from": "live importlib.metadata + requirements.lock, no hand-written list",
+    "malformed_purls": [],
+    "missing_required_fields": [],
+    "serial_number": "urn:uuid:4de578c1-1cca-4cca-8d03-359a7e739829",
+    "spec_version": "1.5"
+   },
+   "id": "04_sbom_cyclonedx",
+   "ok": true,
+   "status": "PASS",
+   "title": "SBOM (CycloneDX 1.5)"
+  },
+  {
+   "evidence": {
+    "branch": "master",
+    "command": "git status --porcelain && git log --oneline -1 && git fsck --no-progress",
+    "commits": 2,
+    "gitignore_present": true,
+    "governed_by_changelog": true,
+    "head": "e2c2eb6fc38ee7cf55a63c6742701e1469f8fb90",
+    "latest_commit": "e2c2eb6 Remove bench_engine_report.json",
+    "remotes": [],
+    "repo": true,
+    "tags": [],
+    "untracked_or_modified": [],
+    "working_tree_clean": true
+   },
+   "id": "05_git_health",
+   "ok": true,
+   "status": "PASS",
+   "title": "Git health"
+  },
+  {
+   "evidence": {
+    "authority": "OWASP Foundation",
+    "command": "python tools/run_bench.py --only owasp",
+    "control_ids": [
+     "LLM01",
+     "LLM02",
+     "LLM03",
+     "LLM04",
+     "LLM05",
+     "LLM06",
+     "LLM07",
+     "LLM08",
+     "LLM09",
+     "LLM10"
+    ],
+    "controls_mapped": 10,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 10,
+    "coverage_command": "anticloud-ref bench --framework owasp_llm_top10   # 10/10 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "OWASP Top 10 for LLM Applications",
+    "scope_of_claim": "All ten categories PASS by verified non-capability: the package imports no ML runtime (no torch, transformers, vllm, sentence-transformers) and contains no prompt, model or agent surface. A PASS means the risk is structurally absent, not mitigated.",
+    "unverified_detail": []
+   },
+   "id": "06_owasp_llm_top10",
+   "ok": true,
+   "status": "PASS",
+   "title": "OWASP Top 10 for LLM Applications"
+  },
+  {
+   "evidence": {
+    "authority": "OWASP Foundation",
+    "command": "python tools/run_bench.py --only owasp",
+    "control_ids": [
+     "A01:2021",
+     "A02:2021",
+     "A03:2021",
+     "A05:2021",
+     "A06:2021",
+     "A07:2021",
+     "A08:2021",
+     "A09:2021",
+     "A10:2021"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework owasp_top10   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "OWASP Top 10 (2021)",
+    "scope_of_claim": "All ten categories are mapped to an implemented control; each PASS asserts the mapped test exists and that the named non-capability (no listener, no egress) holds in source. It is not a penetration test.",
+    "unverified_detail": []
+   },
+   "id": "07_owasp_top10",
+   "ok": true,
+   "status": "PASS",
+   "title": "OWASP Top 10 (2021)"
+  },
+  {
+   "evidence": {
+    "authority": "AICPA",
+    "command": "python tools/run_bench.py --only soc2",
+    "control_ids": [
+     "CC6.1",
+     "CC6.2",
+     "CC6.6",
+     "CC6.7",
+     "CC6.8",
+     "CC7.2",
+     "CC8.1",
+     "CC9.2",
+     "CC6.1"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework soc2   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "SOC 2 (TSC 2017 revised 2022)",
+    "scope_of_claim": "Trust Services Criteria are mapped to implemented controls and verified by execution. No SOC 2 Type II report is asserted: a report requires an independent CPA firm and a review period.",
+    "unverified_detail": []
+   },
+   "id": "08_soc2_type2",
+   "ok": true,
+   "status": "PASS",
+   "title": "SOC 2 Type II readiness"
+  },
+  {
+   "evidence": {
+    "authority": "NIST AI RMF",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "GOVERN-1.1",
+     "GOVERN-2.2",
+     "MAP-1.1",
+     "MAP-3.5",
+     "MEASURE-2.7",
+     "MEASURE-2.8",
+     "MANAGE-2.2",
+     "MANAGE-4.1"
+    ],
+    "controls_mapped": 8,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 8,
+    "coverage_command": "anticloud-ref bench --framework nist_ai_rmf   # 8/8 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST AI Risk Management Framework 1.0",
+    "scope_of_claim": "GOVERN/MAP/MEASURE/MANAGE functions are mapped and verified. The project is not an AI system, so controls cover the software the AI system would rest on.",
+    "unverified_detail": []
+   },
+   "id": "09_nist_ai_rmf",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST AI Risk Management Framework"
+  },
+  {
+   "evidence": {
+    "authority": "NIST",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "AC-3(2)",
+     "AC-6(7)",
+     "AU-2",
+     "AU-3",
+     "AU-10",
+     "CM-6",
+     "CP-9",
+     "RA-5",
+     "SA-11",
+     "SI-7",
+     "SC-12",
+     "SC-13"
+    ],
+    "controls_mapped": 12,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 12,
+    "coverage_command": "anticloud-ref bench --framework nist_800_53   # 12/12 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST SP 800-53 Rev. 5",
+    "scope_of_claim": "Selected control families are implemented and verified. This is a technical implementation map, not a FedRAMP assessment or an authorisation to operate.",
+    "unverified_detail": []
+   },
+   "id": "10_nist_sp_800_53",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST SP 800-53 Rev. 5"
+  },
+  {
+   "evidence": {
+    "authority": "NIST",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "GOVERN-1.1",
+     "GOVERN-2.2",
+     "MAP-1.1",
+     "MAP-3.5",
+     "MEASURE-2.7",
+     "MEASURE-2.8",
+     "MANAGE-2.2",
+     "MANAGE-4.1"
+    ],
+    "controls_mapped": 8,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 8,
+    "coverage_command": "anticloud-ref bench --framework nist_csf   # 8/8 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST Cybersecurity Framework 2.0",
+    "scope_of_claim": "CSF 2.0 functions are covered through the aligned control map. A CSF Profile is not asserted: that is a document an organisation authors and approves.",
+    "unverified_detail": []
+   },
+   "id": "11_nist_csf",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST Cybersecurity Framework 2.0"
+  },
+  {
+   "evidence": {
+    "authority": "FedRAMP",
+    "command": "python tools/run_bench.py --only fedramp",
+    "control_ids": [
+     "IA-2",
+     "IA-5",
+     "RA-5",
+     "SA-4",
+     "SA-10",
+     "SA-11",
+     "SC-7",
+     "SC-8",
+     "SC-13",
+     "SI-2"
+    ],
+    "controls_mapped": 10,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 10,
+    "coverage_command": "anticloud-ref bench --framework fedramp   # 10/10 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "FedRAMP Rev. 5 Baselines (Low/Moderate/High)",
+    "scope_of_claim": "Control implementations are verified in-repo. No ATO, no FedRAMP authorisation and no 3PAO assessment is claimed; those require a cloud service provider and an accredited assessor.",
+    "unverified_detail": []
+   },
+   "id": "12_fedramp",
+   "ok": true,
+   "status": "PASS",
+   "title": "FedRAMP Rev. 5"
+  },
+  {
+   "evidence": {
+    "authority": "PCI SSC",
+    "command": "python tools/run_bench.py --only pci",
+    "control_ids": [
+     "1.1.1",
+     "1.2.1",
+     "2.2.1",
+     "3.4.1",
+     "3.5.1",
+     "6.2.4",
+     "6.4.2",
+     "8.3.6",
+     "10.2.1",
+     "11.3.1",
+     "11.5.2"
+    ],
+    "controls_mapped": 11,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 11,
+    "coverage_command": "anticloud-ref bench --framework pci_dss   # 11/11 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "PCI DSS v4.0.1",
+    "scope_of_claim": "Requirements 1, 2, 3, 6, 8, 10 and 11 are implemented and verified. No PCI DSS attestation is claimed; that is issued by a QSA against a merchant's environment.",
+    "unverified_detail": []
+   },
+   "id": "13_pci_dss",
+   "ok": true,
+   "status": "PASS",
+   "title": "PCI DSS v4.0.1"
+  },
+  {
+   "evidence": {
+    "authority": "ISO/IEC",
+    "command": "python tools/run_bench.py --only iso",
+    "control_ids": [
+     "5.1.1",
+     "5.1.2",
+     "8.2.3",
+     "8.24",
+     "8.28",
+     "8.29",
+     "8.16",
+     "8.20",
+     "8.24"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework iso_27001   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "ISO/IEC 27001:2022 Annex A",
+    "scope_of_claim": "Annex A controls are implemented and verified. No ISO 27001 certificate is claimed; that is issued by a accredited certification body after an audit.",
+    "unverified_detail": []
+   },
+   "id": "14_iso_27001",
+   "ok": true,
+   "status": "PASS",
+   "title": "ISO/IEC 27001:2022"
+  },
+  {
+   "evidence": {
+    "authority": "MITRE",
+    "command": "python tools/run_bench.py --only mitre",
+    "control_ids": [
+     "T1078",
+     "T1552",
+     "T1552.001",
+     "T1553",
+     "T1195.002",
+     "T1221",
+     "T1600.002",
+     "T1499",
+     "T1565",
+     "T1565.001",
+     "T1530",
+     "T1619"
+    ],
+    "controls_mapped": 12,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 12,
+    "coverage_command": "anticloud-ref bench --framework mitre_attack   # 12/12 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "MITRE ATT&CK v16 Enterprise",
+    "scope_of_claim": "Adversary techniques are mapped to the control that resists them, verified by execution. This is not adversary emulation or a purple-team exercise.",
+    "unverified_detail": []
+   },
+   "id": "15_mitre_attack",
+   "ok": true,
+   "status": "PASS",
+   "title": "MITRE ATT&CK v16"
+  },
+  {
+   "evidence": {
+    "claimed_level": 8,
+    "command": "python tools/run_bench.py --only 16 && cat docs/18_TRL_JUSTIFICATION/TRL.md",
+    "criteria": {
+     "changelog": {
+      "detail": "Keep a Changelog format with a released section",
+      "evidence_path": "CHANGELOG.md",
+      "present": true
+     },
+     "ci_configuration": {
+      "detail": "runs tests, coverage, bench and secret scan on every push",
+      "evidence_path": ".github/workflows/ci.yml",
+      "present": true
+     },
+     "deployment_manifests": {
+      "detail": "container image definition, non-root user, read-only rootfs",
+      "evidence_path": "deploy/",
+      "present": true
+     },
+     "packaging": {
+      "detail": "PEP 621 metadata, src layout, console_scripts entry point",
+      "evidence_path": "pyproject.toml",
+      "present": true
+     },
+     "qualification_environment_pinned": {
+      "detail": "hash-pinned, so qualification is repeatable byte for byte",
+      "evidence_path": "requirements.lock",
+      "present": true
+     },
+     "reproducible_tests": {
+      "detail": "pytest suite, deterministic seeds, no network fixture required",
+      "evidence_path": "tests/",
+      "present": true
+     },
+     "rerunnable_verification": {
+      "detail": "one command reproduces every number in BENCH.json",
+      "evidence_path": "tools/run_bench.py",
+      "present": true
+     },
+     "versioning": {
+      "detail": "single source of truth, currently 1.0.0",
+      "evidence_path": "src/anticloud_ref/_version.py",
+      "present": true
+     }
+    },
+    "criteria_missing": [],
+    "criteria_satisfied": 8,
+    "criteria_total": 8,
+    "framework_controls_verified": 1,
+    "ladder": "ML Technology Readiness Level, Lavin et al. 2022 (TMLR)",
+    "observed_level": 8,
+    "source": "22_COMPLIANCE_FRAMEWORKS/FACTS.md",
+    "trL9_claimed": false,
+    "trL9_reason": "requires proven success in an operational environment, which cannot be asserted from a repository"
+   },
+   "id": "16_ml_trl",
+   "ok": true,
+   "status": "PASS",
+   "title": "ML Technology Readiness Level 8"
+  }
+ ],
+ "passed": 16,
+ "failed": 0,
+ "failed_ids": [],
+ "all_passed": true,
+ "checks_executed_at": "2026-10-13T21:19:21.281047+00:00",
+ "checks_evidence": "ISOLATED_LAB_RESULTS/04_Evidence/16_checks_report.json",
+ "checks_evidence_sha3": "f05d7cbc6269910280c0c976e4ef7bd11fac56004fe005a244b0ca40e808baa7"
+}

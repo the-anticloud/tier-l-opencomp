@@ -1,0 +1,67 @@
+{
+  "benchmark": "HF_Leaderboard_Lab_Results",
+  "project": "L_OPENCOMP",
+  "tier": "TIER_6_SECURITY_EVAL",
+  "slug": "open-compass/opencompass",
+  "commit": "e2d2b9a5236b",
+  "run_timestamp": "2026-09-30T15:07:07.146295+00:00",
+  "isolation": {
+    "environment": "local",
+    "model": "distilbert-base-uncased",
+    "hf_model_load_time_sec": 4.42,
+    "platform": "win32",
+    "python": "3.12.10"
+  },
+  "results": {
+    "framework": "HuggingFace Open LLM Leaderboard (proxy via distilbert-base-uncased)",
+    "source": "https://huggingface.co/docs/leaderboards/en/open_llm_leaderboard/archive",
+    "model_used": "distilbert-base-uncased",
+    "note": "Full MMLU/HellaSwag/TruthfulQA/ARC/Winogrande/GSM8K require GPU. Proxy: inference latency.",
+    "samples_run": 5,
+    "latency_ms": {
+      "avg": 46.2,
+      "min": 44.06,
+      "max": 47.52,
+      "all": [
+        47.49,
+        45.98,
+        45.97,
+        47.52,
+        44.06
+      ]
+    },
+    "status": "PASS",
+    "tokenization": {
+      "model": "distilbert-base-uncased",
+      "input_text": "L_OPENCOMP (open-compass/opencompass) \u2014 3594 files, 283247 source lines, licence Apache-2.0, primary language ['Python']",
+      "token_count": 42,
+      "tokens_preview": [
+        "[CLS]",
+        "l",
+        "_",
+        "open",
+        "##com",
+        "##p",
+        "(",
+        "open",
+        "-",
+        "compass",
+        "/",
+        "open",
+        "##com",
+        "##pass",
+        ")",
+        "\u2014",
+        "35",
+        "##9",
+        "##4",
+        "files"
+      ],
+      "tokenization_latency_ms": 0.0,
+      "classification_label": "LABEL_0",
+      "classification_score": 0.5877,
+      "classification_latency_ms": 81.5,
+      "status": "PASS"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "benchmark": "Radon_Complexity_Lab_Results",
+  "project": "L_OPENCOMP",
+  "run_timestamp": "2026-09-30T17:14:20.030944+00:00",
+  "source": "https://radon.readthedocs.io/",
+  "results": {
+    "framework": "Radon \u2014 Cyclomatic Complexity & Maintainability Index",
+    "source": "https://radon.readthedocs.io/",
+    "files_analyzed": 10,
+    "average_complexity": {
+      "grade": "A",
+      "score": 1.8181818181818181
+    },
+    "complexity_grade": "A",
+    "complexity_score": 1.8181818181818181,
+    "status": "PASS",
+    "raw_output": "E:\\fenta\\Downloads\\The Anticloud\\TIER_6_SECURITY_EVAL\\L_OPENCOMP\\UPSTREAM\\setup.py\n    C 5:0 DownloadNLTK - A (2)\n    F 14:0 readme - A (1)\n    F 20:0 parse_requirements - A (1)\n    F 112:0 get_version - A (1)\n    F 119:0 do_setup - A (1)\n    M 7:4 DownloadNLTK.run - A (1)\nE:\\fenta\\Downloads\\The Anticloud\\TIER_6_SECURITY_EVAL\\L_OPENCOMP\\UPSTREAM\\autotest\\_anticloud_egress.py\n    F 38:0 _is_frontier - A (4)\n    F 43:0 guarded_connect - A (4)\n    F 61:0 install - A (3)\n    F 33:0 is_offline - A (1)\n    C 29:0 EgressDenied - A (1)\n\n11 blocks (classes, functions, methods) analyzed.\nAverage complexity: A (1.8181818181818181)",
+    "mi_output": "E:\\fenta\\Downloads\\The Anticloud\\TIER_6_SECURITY_EVAL\\L_OPENCOMP\\UPSTREAM\\run.py - A (84.58)\nE:\\fenta\\Downloads\\The Anticloud\\TIER_6_SECURITY_EVAL\\L_OPENCOMP\\UPSTREAM\\setup.py - A (59.82)\nE:\\fenta\\Downloads\\The Anticloud\\TIER_6_SECURITY_EVAL\\L_OPENCOMP\\UPSTREAM\\autotest\\_anticloud_egress.py - A (79.55)\nE:\\fenta\\Downloads\\The Anticloud\\TIER_6_SECURITY_EVAL\\L_OPENCOMP\\UPSTREAM\\autotest\\__init__.py - A (100.00)\nE:\\fenta\\Downloads\\The Anticloud\\TIER_6_SECURITY_EVAL\\L_OPENCOMP\\UPSTREAM\\examples\\eval_"
+  }
+}

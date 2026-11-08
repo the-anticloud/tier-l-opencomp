@@ -1,0 +1,21 @@
+{
+  "benchmark": "CLOC_Lab_Results",
+  "project": "L_OPENCOMP",
+  "run_timestamp": "2026-09-30T17:14:20.030944+00:00",
+  "source": "https://github.com/AlDanial/cloc",
+  "results": {
+    "framework": "CLOC \u2014 Count Lines of Code (via project_facts.json)",
+    "source": "https://github.com/AlDanial/cloc",
+    "total_files": 3594,
+    "total_source_lines": 283247,
+    "languages": {
+      "Python": 3243,
+      "JavaScript": 2,
+      "Shell": 1
+    },
+    "primary_language": "Python",
+    "language_count": 3,
+    "lines_per_file": 78.8,
+    "status": "PASS"
+  }
+}
